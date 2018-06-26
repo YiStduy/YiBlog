@@ -1,0 +1,24 @@
+{
+  "name": "yiblog_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": false,
+  "dependencies": {
+    "file-loader": "^1.1.11",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx webpack --mode development",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
