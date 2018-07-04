@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>vue demo01</title>
+        <style>
+        [v-cloak] {
+  display: none;
+            }
+            .color1{
+                color: red;
+            }
+            .color2{
+                color: blue;
+            }
+        </style>
+    </head>
+   
+    <body>
+        <!-- v-clocak [v-cloak] { display: none }-->
+        <!-- HTML 绑定 Vue实例，在页面加载时会闪烁 -->
+        <div id="app" v-cloak>
+            <input type="text" v-model="message" />
+            <h2 :class="isShow ? 'color1' : 'color2'">数据显示: {{message}}</h2>
+            <h5 v-bind:title="message" :class="'color2'">绑定属性写法一</h5>
+            <h5 :title="message" >绑定属性写法二</h5>
+            <h2>条件循环：</h2>
+            <h3>if循环:</h3>
+            <h5><input type="button" @click="isShow=true" value="设置isShow为true" />
+                <input type="button" v-on:click="isShow=false" value="设置isShow为false" />
+                <input type="button" v-on:click="isShow=!isShow" value="设置isShow为当前相反的值 !isShow" />
+            </h5>
+            <h5 v-if="isShow">如果isShow为true则显示</h5>
+            <h5 v-if="!isShow">如果isShow为false则显示</h5>
+            <h3>if-else:</h3>
+            年龄：<input type="text" v-model="age">
+            <h5 v-if="age > 60 ">老年</h5>
+            <h5 v-else-if="age > 30 && age < 60">中年</h5>
+            <h5 v-else-if="age >= 18 && age < 30 ">青年</h5>
+            <h5 v-else-if="age < 18 ">少年</h5>
+            <h5 v-else>不要乱填</h5>
+            <h3>
+  
+            </h3>
+            <h2>模板语法</h2>
+            Vue.js 提供了完全的 JavaScript 表达式支持。
+            <br/>
+            {{number + 1}}
+            <br/>
+            {{message+'字符串的长度:'+message.split(' ').length}}
+            <br/>
+            {{message.split(' ')[0]}}
+            <br/>
+            {{message.split(' ')[1]}}
+            <br/>
+            {{message.split(' ')[2]}}
+            <br/>
+            isShow三元判断符显示文字：{{ isShow ? '显示' : '不显示' }}
+            <pre><code class="html">
+                <html>
+             <!-- 这是语句，不是表达式 -->
+            var a = 1 
+
+            <!-- 流控制也不会生效，请使用三元表达式 -->
+             if (ok) { return message 
+
+            在 template 元素上使用 v-if 条件渲染分组<br/>
+            因为 v-if 是一个指令，所以必须将它添加到一个元素上。但是如果想切换多个元素呢？此时可以把一个 template
+            元素当做不可见的包裹元素，并在上面使用 v-if。最终的渲染结果将不包含 template 元素。
+            </html>
+            </code></pre>
+            <h3>遍历循环最新的三本书：</h3>
+            <h5 v-for="book in booklist">
+                {{book}}
+            </h5>
+
+            <template v-for="book in booklist">
+                    {{book}}<br/>
+            </template>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="../lib/highlight//styles/dark.css">
+<script type="text/javascript" src="../lib/highlight/highlight.pack.js"></script>
+<script type="text/javascript" src="../lib/vue/vue.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
